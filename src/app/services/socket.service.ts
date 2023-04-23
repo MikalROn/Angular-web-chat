@@ -6,7 +6,7 @@ import { Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class SocketService {
-  public url: string = 'ws://127.0.0.1:8000'
+  public url: string = '127.0.0.1:8000'
   private ws: WebSocket;
   private username: string = 'TigrePadrao';
   private listaMenssagens: Array<string> = [];
@@ -20,7 +20,7 @@ export class SocketService {
   }
 
   connect(): WebSocket {
-      let localSock: WebSocket = new WebSocket(`${this.url}/?username=${this.username}`);
+      let localSock: WebSocket = new WebSocket(`$ws://{this.url}/?username=${this.username}`);
       this.onMessage(localSock);
       return localSock
   }
@@ -34,6 +34,14 @@ export class SocketService {
     alert(`Nome foi alterado de ${this.username} -> para -> ${username}`)
     this.ws.close();
     this.username = username;
+    this.ws = this.connect();
+  }
+
+  changeUrl (url: string): void {
+    this.listaMenssagens.length = 0;
+    alert(`mudando serveidor para ${url}`)
+    this.ws.close();
+    this.url = url;
     this.ws = this.connect();
   }
 
