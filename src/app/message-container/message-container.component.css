@@ -1,0 +1,13 @@
+#label-message{
+  width: 100%;
+  border-radius: 15px;
+  height: 80vh;
+  padding: 0px;
+}
+#label-card{
+  background-color: azure;
+  padding: 15px 0px 0px 0px;
+  margin: 10px 5px;
+  border-radius: 15px;
+}
+

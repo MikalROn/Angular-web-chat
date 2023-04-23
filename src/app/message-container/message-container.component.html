@@ -1,0 +1,19 @@
+<div class="scrollable" style=" overflow-y: scroll;" id='label-message'>
+  <div *ngFor="let message of messages.reverse().slice(0,15)" class="row" id="label-card">
+          <p style="font-size: 0.80rem;">{{ message }}</p>
+  </div>
+</div>
+
+<div class="stick">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <form class="container-fluid">
+      <div class="input-group">
+        <span  class="input-group-text" id="basic-addon1">@</span>
+        <input name='username' [(ngModel)]='username' type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        <button class='btn btn-sm btn-outline-secondary' (click)="changeUsername()"> Reconectar </button>
+      </div>
+    </form>
+  </nav>
+  <app-form-chat></app-form-chat>
+</div>
+
